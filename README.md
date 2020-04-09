@@ -1,13 +1,12 @@
 # Neurone AM Coordinator
 
-Neurone-am-coordinator is part of the Neurone-AM (active monitoring) solution, compose of [neurone-am-connector](https://github.com/NEURONE-IL/neurone-am-connector.git) and [neurone-am-visualization](https://github.com/NEURONE-IL/neurone-am-visualization.git) also. All three components interact with each other to deliver real-time updated metrics over a persistent connection and provides tools for monitoring all users of [NEURONE](https://github.com/NEURONE-IL/neurone) search engine.
+Neurone-am-coordinator is part of the Neurone-AM (active monitoring) solution, compose of [neurone-am-connector](https://github.com/NEURONE-IL/neurone-am-connector.git) and [neurone-am-visualization](https://github.com/NEURONE-IL/neurone-am-visualization.git) also. All three components interact with each other to deliver real-time updated metrics over a persistent connection and provides tools for monitoring all users of [NEURONE](https://github.com/NEURONE-IL/neurone) search engine. To deploy all components together go to [neurone-am-deployment](https://github.com/NEURONE-IL/neurone-am-deployment.git) repository.
 
 
 Coordinator component is responsible of deliver the metrics in real time through a persistent conextion to the clients or consumers of its. This handle the interaction between neruone-am-connector API and any client as neurone-am-visualization client prototype. Also, support publish-subscribe pattern.
 
 
 This component is composed of two elements, a REST API and a [Pushpin](https://pushpin.org/) instance, an inverted proxy. The first provide differents services oriented to publish-subscriber, such as subscription process and other validations. On the other hand, Pushpin redirect all the request and deliver the selected metrics to the clients.
-
 
 ## REST API Services
 
