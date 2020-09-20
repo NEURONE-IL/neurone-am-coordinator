@@ -20,5 +20,5 @@ RUN npm run build
 
 EXPOSE 4001
 
-CMD [ "node","app-compiled.js" ]
+CMD [ "npm","run","serve" ]
 

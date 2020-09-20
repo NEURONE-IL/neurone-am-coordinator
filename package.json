@@ -1,27 +1,29 @@
 {
   "name": "neurone-am-coordinator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node app.js",
-    "build": "babel app.js --out-file app-compiled.js",
+    "dev": "nodemon --exec babel-node src/app.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "grip": "^1.6.0",
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/node": "^7.7.7",
-    "@babel/preset-env": "^7.7.7"
+    "mongoose": "^5.10.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
