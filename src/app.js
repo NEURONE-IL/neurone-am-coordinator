@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import mongoClient from './mongoClient'
 import './models/metrics'
+import "regenerator-runtime/runtime.js";
 import router from "./routes";
 import metrics from './metricsList'
 import mongoose from 'mongoose'
