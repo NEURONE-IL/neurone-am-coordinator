@@ -9,13 +9,12 @@ Metric model definition.
 const MetricSchema = new Schema({
 	name: String,
     alias: String,
-    description: String,
+    descriptions: {},
     dataType: String,
     max: Number,
-    min: Number,
     interval: Number
 });
-
+    
 /*
 @fvillarrealcespedes:
 Exports the Metric model.
