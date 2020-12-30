@@ -56,24 +56,25 @@ monitor.get("/ifsession", (req, res, next) => {
 monitor.post("/configure", (req, res, next) => {
   let local_metrics = req.body.metrics;
   let local_interval = req.body.interval;
-  let option = req.body.local_option;
-  let limit = req.body.limit;
+  let local_option = req.body.option;
+  let local_limit = req.body.limit;
 
   principal = req.body.principal;
   console.log("local_metrics", local_metrics);
   console.log("local_interval", local_interval);
-  console.log("local_option", option);
-  console.log("local_limit", limit);
+  console.log("local_option", local_option);
+  console.log("local_limit", local_limit);
 
   if (metrics.length === 0) {
     metrics = [...local_metrics];
   }
   interval = local_interval;
+  option=local_option;
+  limit=local_limit;
   res.status(200).json({ metrics });
 });
 
 monitor.get("/init", (req, res, next) => {
-  console.log("llego aqui");
   res.set("Content-Type", "text/event-stream");
   res.set("Grip-hold", "stream");
   res.set("Grip-channel", "session");
@@ -142,6 +143,8 @@ monitor.get("/endsession", (req, res, next) => {
 
   metrics = [];
   interval = 0;
+  option="";
+  limit=0;
   sesion = null;
   res.sendStatus(200);
 });
