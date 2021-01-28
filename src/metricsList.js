@@ -121,15 +121,15 @@ const metrics = [
         "interval": 0.1
     },
     {
-        "name": "pagestay ",
+        "name": "pagestay",
         "alias": "Total Page Stay",
         "descriptions": {
             "en": "Total time in seconds that the participant stays in documents",
             "es": "Tiempo total en segundos que el participante permanece en documentos"
         },
-        "dataType": "Integer",
+        "dataType": "Decimal",
         "max": null,
-        "interval": 1
+        "interval": 0.1
     },
     {
         "name": "entropy",
