@@ -27,7 +27,7 @@ const updateMetrics = () => {
       let values = response.data;
       let object = values.map(r => {
         let results = {};
-        results[metric] = r[metric];
+        results[metric] = r["value"];
         results[metric] = Math.round(results[metric] * 100) / 100;
         return { username: r.username, results };
       });
