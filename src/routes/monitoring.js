@@ -2,7 +2,7 @@ import { Router } from "express";
 import axios from 'axios'
 import pub from './../pushpinClient'
 import dotenv from 'dotenv';
-
+import fs from 'fs'
 dotenv.config();
 
 const monitor = Router();
@@ -25,6 +25,7 @@ const updateMetrics = () => {
   metrics.map(metric => {
     axios.get(`${process.env.CONECTOR_URL}/${metric}`).then(response => {
       let values = response.data;
+      writeMetricLog(values,metric)
       let object = values.map(r => {
         let results = {};
         results[metric] = r["value"];
@@ -38,6 +39,23 @@ const updateMetrics = () => {
     });
   });
 };
+
+const writeMetricLog=(values,metric)=>{
+  let folder=process.env.LOGS
+  let filename=folder+"/latency-"+metric+".json"
+  let logs=[]
+
+  if(!fs.existsSync(folder)){
+    fs.mkdirSync(folder)
+  }
+  if(fs.existsSync(filename)){
+    let data=fs.readFileSync(filename)
+    logs=JSON.parse(data)
+  } 
+  logs=logs.concat(values)
+  let json=JSON.stringify(logs)
+  fs.writeFileSync(filename,json)
+}
 
 monitor.get("/ifsession", (req, res, next) => {
   if (sesion == null) {
